@@ -25,4 +25,5 @@ const Navbar: React.FC = async () => {
   );
 };
 
+
 export default Navbar;
