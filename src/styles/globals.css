@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --_mesh-gradient-blur: 0px;
+  --_mesh-gradient-blend-mode: screen;
+
+  --link-color: #f80;
+  --link-underline-padding: .5em;
+}
+
+body {
+  background-color: #181818;
+  color: #efefef;
+}
+
+@layer {
+  .underline_text {
+    background: linear-gradient(currentColor 0 0) bottom left/ var(--underline-width, 0%) 0.1em no-repeat;
+    display: inline-block;
+    transition: background-size 0.5s;
+  }
+
+  .underline_text:hover {
+    --underline-width: 100%;
+  }
+
+  .highlight {
+    background: linear-gradient(120deg, #2e3019 0%, #6e7426 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 90%;
+  }
+
+  .gradient {
+    background: radial-gradient(at 21% 93%, #032c17 0px, transparent 50%), radial-gradient(at 90% 63%, #032c2b 0px, transparent 50%), radial-gradient(at 87% 19%, #03182c 0px, transparent 50%), radial-gradient(at 68% 61%, #2c0318 0px, transparent 50%), radial-gradient(at 87% 1%, #2c1703 0px, transparent 50%) #000000;
+    mix-blend-mode: var(--_mesh-gradient-blend-mode);
+    filter: blur(var(--_mesh-gradient-blur));
+    background-size: cover;
+  }
+}
