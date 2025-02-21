@@ -1,7 +1,7 @@
 import { signInWithGoogle } from "@/lib/register";
 import Image from "next/image";
 
-const GoogleSignInComp: React.FC = () => {
+const GoogleSignInComp = () => {
   return (
     <form action={signInWithGoogle}>
       <button>

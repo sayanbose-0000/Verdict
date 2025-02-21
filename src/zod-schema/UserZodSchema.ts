@@ -7,16 +7,16 @@ const UserZodSchema = z.object({
 
   name: z
     .string({ message: "Username must be provided" })
-    .min(1, { message: "Id must be provided" }),
+    .min(1, { message: "Username must be provided" }),
 
   email: z
-    .string({ message: "Email must be provided" })
-    .min(1, { message: "Id must be provided" })
+    .string({ message: "Email must be a string" })
+    .min(1, { message: "Email must be provided" })
     .email({ message: "Email must be provided" }),
 
   image: z
-    .string({ message: "Image must be provided" })
-    .min(1, { message: "Id must be provided" })
+    .string({ message: "Image must be a string" })
+    .min(1, { message: "Image must be provided" })
     .url({ message: "Image must be an url" })
 });
 

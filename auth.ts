@@ -4,7 +4,7 @@ import Google from "next-auth/providers/google";
 import dbConnect from "@/lib/dbConnect";
 import UserZodSchema from "@/zod-schema/UserZodSchema";
 import { z } from "zod";
-import UserMongoModel from "@/mongo-schema/UserMongoSchema";
+import UserMongoModel from "@/mongo-schema/UserMongoModel";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub, Google],
@@ -48,6 +48,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         return false;
       }
+    },
+
+    async session({ session }) {
+      dbConnect();
+      const UserDoc = await UserMongoModel.findOne({ email: session.user.email });
+      if (UserDoc) {
+        session.user.id = UserDoc._id.toString()
+      }
+      return session;
     }
   }
 });

@@ -1,7 +1,7 @@
 import { signInWithGithub } from "@/lib/register";
 import Image from "next/image";
 
-const GithubSignInComp: React.FC = () => {
+const GithubSignInComp = () => {
   return (
     <form action={signInWithGithub}>
       <button>

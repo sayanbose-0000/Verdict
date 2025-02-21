@@ -3,13 +3,13 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Welcome to Verdict- Register",
-  description: "Start your journey in to the world of anonymous opinions"
+  title: "Verdict- Home",
+  description: "Share opinion about anything"
 };
 
-const HomeLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => {
+const RootLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => {
   return (
-    <html>
+    <html lang="en">
       <body className={`${archivo.className}`}>
         {children}
       </body>
@@ -17,4 +17,4 @@ const HomeLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => {
   );
 };
 
-export default HomeLayout;
+export default RootLayout;

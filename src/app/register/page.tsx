@@ -1,8 +1,13 @@
 import GithubSignInComp from "@/components/register/GithubSignInComp";
 import GoogleSignInComp from "@/components/register/GoogleSignInComp";
-import { auth } from "~/auth";
+import { Metadata } from "next";
 
-const RegisterPage: React.FC = () => {
+export const metadata: Metadata = {
+  title: "Welcome to Verdict- Register",
+  description: "Start your journey in to the world of anonymous opinions"
+};
+
+const RegisterPage = () => {
   return (
     <main className="absolute inset-0 p-2 flex flex-col gap-6 justify-center items-center text-center gradient">
       <div className="flex flex-col gap-1">

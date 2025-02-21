@@ -2,11 +2,9 @@ import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 
 export const middleware = async (request: NextRequest) => {
-  const token = request.cookies.get("authjs.callback-url")?.value || request.cookies.get("authjs.csrf-token")?.value;
+  const token = request.cookies.get("authjs.session-token")?.value;
 
   const pathname = request.nextUrl.pathname;
-  console.log(token);
-  console.log(pathname);
 
   if (token && pathname === "/register") {
     return NextResponse.redirect(new URL('/', request.url));
@@ -16,9 +14,11 @@ export const middleware = async (request: NextRequest) => {
     return NextResponse.redirect(new URL('/register', request.url));
   }
 
-  return NextResponse.next();
+  // if (!token && pathname === "/create") {
+  //   return NextResponse.redirect(new URL('/register', request.url));
+  // }
 };
 
 export const config = {
-  matcher: ["/register", "/"],
+  matcher: ["/register", "/", "/create"],
 };
