@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 
 export const middleware = async (request: NextRequest) => {
-  const token = request.cookies.get("authjs.session-token")?.value;
+  // const token = request.cookies.get("authjs.session-token")?.value;
+  const token = request.cookies.get("__Secure-authjs.session-token")?.value;
 
   const pathname = request.nextUrl.pathname;
 
