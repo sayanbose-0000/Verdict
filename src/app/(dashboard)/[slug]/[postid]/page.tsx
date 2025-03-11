@@ -1,15 +1,15 @@
 import Comment from "@/components/comment/Comment";
-import CommentSection from "@/components/comment/Comment";
 import { userExistsinDB } from "@/lib/userExistsinDB";
 import QuestionMongoModel from "@/mongo-schema/QuestionMongoModel";
 import UserMongoModel from "@/mongo-schema/UserMongoModel";
 import { notFound } from "next/navigation";
-import { auth } from "~/auth";
+// import { auth } from "~/auth";
 
 export const generateMetadata = async ({ params }: { params: Promise<{ slug: string, postid: string }> }) => {
-  const { slug, postid } = await params;
+  const { postid } = await params;
 
-  let data: any = await QuestionMongoModel.findById(postid).populate("author");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const data: any = await QuestionMongoModel.findById(postid).populate("author");
 
   return {
     title: `Verdict- ${data.question}`,
@@ -26,12 +26,13 @@ const PostPage = async ({ params }: { params: Promise<{ slug: string, postid: st
 
   if (user.length == 0) return notFound();
 
-  const session = await auth();
+  // const session = await auth();
 
   // if (user[0].email !== session?.user?.email) return notFound();
   // console.log(user);
 
-  let data: any = await QuestionMongoModel.findOne({ _id: postid, author: user[0]._id }).populate("author");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const data: any = await QuestionMongoModel.findOne({ _id: postid, author: user[0]._id }).populate("author");
 
   if (!data) return notFound();
   // let data: any = await QuestionMongoModel.findOne({_id: postid, "author.email": decodeURIComponent(slug)}).populate("author");

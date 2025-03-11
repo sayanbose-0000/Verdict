@@ -19,7 +19,7 @@ const FiveStars = ({ currStars, setCurrStars }: TProps) => {
     setStarHoverVal(idx + 1);
   }
 
-  const handleMouseOut = (idx: number) => {
+  const handleMouseOut = () => {
     setStarHoverVal(-1);
   }
 
@@ -27,7 +27,7 @@ const FiveStars = ({ currStars, setCurrStars }: TProps) => {
     <div className="flex cursor-pointer justify-center items-center self-start" >
       {
         starArr.map((item, idx) => (
-          <button type="button" key={idx} onClick={e => handleStarClick(idx)} className="scaleContainer p-1" onMouseOver={e => handleMouseOver(idx)} onMouseOut={e => handleMouseOut(idx)} >
+          <button type="button" key={idx} onClick={() => handleStarClick(idx)} className="scaleContainer p-1" onMouseOver={() => handleMouseOver(idx)} onMouseOut={() => handleMouseOut()} >
             <Image src={currStars > idx ? "/icons/star-filled.svg" : starHoverVal > idx ? "/icons/star-gray.svg" : "/icons/star-empty.svg"} height={25} width={25} alt={`${item}`} />
           </button>
         ))

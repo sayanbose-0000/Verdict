@@ -43,7 +43,8 @@ const DashBoardPage = async ({ params }: { params: Promise<{ slug: string }> }) 
 
   if (user.length == 0) return notFound();
 
-  let data: any[] = await QuestionMongoModel.find({ author: user[0]._id }).populate("author").lean();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const data: any[] = await QuestionMongoModel.find({ author: user[0]._id }).populate("author").lean();
 
   return (
     <>
