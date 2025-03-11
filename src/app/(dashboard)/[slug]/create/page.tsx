@@ -9,7 +9,8 @@ export const generateMetadata = async () => {
   };
 };
 
-const CreatePage = async ({ params }: { params: Promise<{ slug: string; }>; }) => {
+
+const CreateQuestionPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const session = await auth();
   const { slug } = await params;
   const emailFromSlug = decodeURIComponent(slug);
@@ -32,4 +33,4 @@ const CreatePage = async ({ params }: { params: Promise<{ slug: string; }>; }) =
   );
 };
 
-export default CreatePage;
+export default CreateQuestionPage;

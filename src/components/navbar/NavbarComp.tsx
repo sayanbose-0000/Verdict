@@ -7,7 +7,7 @@ const NavbarComp = async () => {
 
   return (
     <nav className="flex justify-between items-center p-2 py-5 h-8 sticky inset-0 z-20 backdrop-blur-sm">
-      <Link href={`/${session?.user?.email}`} className="text-xl  font-bold">Verdict</Link >
+      <Link href={`/${session?.user?.email}`} className="text-xl font-bold">Verdict</Link >
       <div className="flex gap-2 justify-center items-center">
 
         {session?.user?.email &&

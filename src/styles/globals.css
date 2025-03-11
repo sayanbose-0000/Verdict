@@ -16,10 +16,12 @@
 
 body {
   background-color: #181818;
+  /* background-color: #121212; */
   color: #efefef;
 }
 
 @layer components {
+  /* for links */
   .underline_text {
     background: linear-gradient(currentColor 0 0) bottom left/ var(--underline-width, 0%) 0.1em no-repeat;
     display: inline-block;
@@ -27,6 +29,18 @@ body {
   }
 
   .underline_text:hover {
+    --underline-width: 100%;
+  }
+
+  /* for textbox */
+  .underline_textbox {
+    background: linear-gradient(currentColor 0 0) bottom center/ var(--underline-width, 0%) 0.1em no-repeat, linear-gradient(gray 0 0) bottom center/ var(--underline-width, 100%) 0.1em no-repeat;
+    display: inline-block;
+    transition: background-size 0.3s;
+  }
+  
+  .underline_textbox:focus {
+    /* border: 0;   */
     --underline-width: 100%;
   }
 
@@ -49,6 +63,10 @@ body {
     mix-blend-mode: var(--_mesh-gradient-blend-mode);
     filter: blur(var(--_mesh-gradient-blur));
     background-size: cover;
+  }
+
+  .scaleContainer:hover .scaleUp {
+    transform: scale(3);
   }
 }
 

@@ -14,17 +14,17 @@ const submitQuestion = async (formdata: FormData) => {
 
   if (form.success) {
     try {
-      const QuestionDocument = await QuestionMongoModel.create(form.data);
+      await QuestionMongoModel.create(form.data);
     }
 
     catch (err) {
-      console.log("Error In Asking Question: \n", err);
+      console.log("Error In Asking Question (DB Error): \n", err);
       return;
     }
   }
-
+  
   else {
-    console.log("Error in asking question!");
+    console.log("Error in asking question! (Zod Error)");
     return;
   }
 
